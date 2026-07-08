@@ -1,154 +1,770 @@
-🎥✨ AI Agent — Video Transcription & Summarization
-Convert long videos into clean transcripts and concise AI summaries using Whisper + BART
-<p align="center"> <img src="https://img.shields.io/badge/AI%20Powered-Yes-blueviolet?style=for-the-badge"/> <img src="https://img.shields.io/badge/Transcription-Whisper-green?style=for-the-badge"/> <img src="https://img.shields.io/badge/Summarization-BART-orange?style=for-the-badge"/> <img src="https://img.shields.io/badge/UI-Streamlit-red?style=for-the-badge"/> <img src="https://img.shields.io/badge/Category-ML%20Application-yellow?style=for-the-badge"/> </p>
-🌟 Overview
+# 🎥 AI Agent: Transcribing & Summarizing Videos
 
-This project is a powerful AI-driven video processing tool that automatically converts video files into:
+![Status](https://img.shields.io/badge/Status-Production_Ready-success?style=for-the-badge)
+![Language](https://img.shields.io/badge/Language-Python-blue?style=for-the-badge)
+![Framework](https://img.shields.io/badge/UI-Streamlit-red?style=for-the-badge)
+![Speech-to-Text](https://img.shields.io/badge/Speech--to--Text-OpenAI_Whisper-green?style=for-the-badge)
+![Summarization](https://img.shields.io/badge/Summarization-HuggingFace_BART-orange?style=for-the-badge)
+![Deep Learning](https://img.shields.io/badge/Deep_Learning-PyTorch-purple?style=for-the-badge)
 
-📝 Complete text transcripts
+> **🚀 AI Agent** is an intelligent AI-powered application that automatically transcribes video content into accurate text and generates concise summaries using **OpenAI Whisper**, **Hugging Face Transformers (BART)**, **PyTorch**, and **Streamlit**. It enables users to extract key insights from lengthy videos within seconds.
 
-🧠 Well-structured AI summaries
+---
 
-🌐 Using a simple, modern Streamlit interface
+# 🚀 Overview
 
-Whether you're a student, content creator, researcher, or professional, this tool saves hours by extracting insights from long videos instantly.
+Watching long lectures, webinars, meetings, and educational videos often requires significant time to identify important information.
 
-📸 Application Screenshot
-<p align="center"> <img src="Screenshot 2025-11-14 210816.png" width="85%" alt="App Screenshot"/> </p>
-🚀 Features
-1️⃣ 🎬 Video-to-Audio Extraction
+**AI Agent** simplifies this process by automatically converting spoken content into text and generating high-quality summaries using modern transformer-based AI models.
 
-Uses FFmpeg to extract clean audio from MP4, MOV, AVI, MKV
+The application combines Speech Recognition, Natural Language Processing, and Deep Learning to provide a complete AI-powered video understanding workflow.
 
-Ensures high-quality input for transcription
+Whether you're a student, researcher, educator, or content creator, AI Agent helps save time while improving accessibility and productivity.
 
-2️⃣ 🗣️ Whisper Speech-to-Text
+---
 
-Powered by OpenAI Whisper
+# ⚡ System Architecture & Engineering Highlights
 
-Handles multiple accents, background noise, and long videos
+The project follows a modular Artificial Intelligence pipeline where each processing stage is isolated into dedicated components.
 
-Produces accurate, punctuation-ready transcripts
+The complete workflow consists of:
 
-3️⃣ ✂️ Smart Text Chunking
+- Video Processing
+- Audio Extraction
+- Speech Recognition
+- Transcript Processing
+- AI Summarization
+- Result Visualization
 
-Automatically splits long transcripts
+The architecture ensures scalability, modularity, and clean separation between each AI processing step.
 
-Avoids token overflow for summarization models
+---
 
-Maintains flow and context across chunks
+# 🏗️ Architecture Overview
 
-4️⃣ 🧠 BART-Based Text Summarization
+```
+                    ┌────────────────────────────┐
+                    │     Streamlit Frontend     │
+                    │      User Interface        │
+                    └──────────────┬─────────────┘
+                                   │
+                           Upload Video
+                                   │
+                                   ▼
+                    ┌────────────────────────────┐
+                    │      Processing Engine     │
+                    └──────────────┬─────────────┘
+                                   │
+        ┌──────────────┬───────────┼───────────────┬──────────────┐
+        ▼              ▼           ▼               ▼              ▼
+  Video Upload     FFmpeg      Whisper AI     Transcript      BART Model
+  Processing    Audio Extract  Speech Model    Chunking     AI Summarizer
+                                   │
+                                   ▼
+                      Transcript + Final Summary
+```
 
-Uses Hugging Face BART
+---
 
-Generates clean, concise, human-like summaries
+# 🚀 Engineering Highlights
 
-Ideal for note-taking, research, and quick understanding
+## 🎬 Intelligent Video Processing
 
-5️⃣ 🌐 Modern Streamlit UI
+The application automatically processes uploaded videos before passing them through the AI pipeline.
 
-Drag-and-drop video upload
+### Features
 
-Real-time processing indicators
+- Video Upload
+- Automatic Processing
+- Multiple Video Formats
+- Audio Extraction
+- Temporary File Management
 
-Dark mode friendly interface
+---
 
-Zero technical knowledge required
+## 🎧 Audio Extraction Engine
 
-🔄 Processing Pipeline
-🎥 Video Input
-      ↓
-🎧 Audio Extraction (FFmpeg)
-      ↓
-🗣️ Speech-to-Text (Whisper)
-      ↓
-✂️ Text Chunking
-      ↓
-🧠 BART AI Summarization
-      ↓
-📝 Final Output (Transcript + Summary)
+The uploaded video is converted into audio using **FFmpeg**.
 
-📁 Project Structure
+### Benefits
+
+- Fast Audio Conversion
+- Supports Multiple Formats
+- High Audio Quality
+- Efficient Processing Pipeline
+
+---
+
+## 🗣️ Speech Recognition using OpenAI Whisper
+
+Speech transcription is powered by **OpenAI Whisper**, one of the most accurate open-source speech recognition models.
+
+### Capabilities
+
+- Accurate Speech Recognition
+- Multiple Accent Support
+- Automatic Punctuation
+- Long Audio Processing
+- Noise Robustness
+- High-quality Transcript Generation
+
+---
+
+## 🧠 AI-powered Text Summarization
+
+The generated transcript is summarized using **facebook/bart-large-cnn** from Hugging Face Transformers.
+
+### Features
+
+- Transformer-based Summarization
+- Context Preservation
+- Human-readable Output
+- Long Document Support
+- High-quality Summary Generation
+
+---
+
+## ✂️ Smart Transcript Processing
+
+Long transcripts are automatically divided into smaller chunks before summarization.
+
+### Benefits
+
+- Better Memory Management
+- Improved AI Performance
+- Handles Long Videos
+- Prevents Token Overflow
+
+---
+
+## ⚡ Interactive Streamlit Interface
+
+The application provides a lightweight and responsive graphical interface.
+
+### Features
+
+- Drag & Drop Upload
+- One-click Processing
+- Interactive Components
+- Responsive Layout
+- Easy-to-use Interface
+
+---
+
+# ✨ Core Features
+
+- 🎥 Video Upload
+- 🎧 Automatic Audio Extraction
+- 🗣️ OpenAI Whisper Speech Recognition
+- 📝 Accurate Transcript Generation
+- 🧠 AI-powered Text Summarization
+- ✂️ Transcript Chunk Processing
+- 📄 Download-ready Transcript
+- ⚡ Streamlit User Interface
+- 🔥 PyTorch Deep Learning Backend
+- 🤖 Hugging Face Transformers
+- 📱 Beginner-friendly Interface
+- 🚀 Fast Processing Pipeline
+
+---
+
+# 🎯 Project Goals
+
+The primary objective of **AI Agent** is to build an intelligent AI system capable of:
+
+- Automatically converting spoken video content into text.
+- Generating concise AI-powered summaries.
+- Reducing the time required to understand lengthy videos.
+- Improving accessibility for educational and professional content.
+- Demonstrating real-world applications of Speech Recognition and Natural Language Processing.
+- Showcasing transformer-based AI models in a practical end-to-end application.
+
+---
+
+# 🛠️ Complete Tech Stack
+
+## 🖥️ Frontend & User Interface
+
+| Technology | Purpose |
+|------------|---------|
+| **Streamlit** | Interactive web application interface |
+| **Python** | Core programming language |
+| **HTML/CSS (Streamlit Components)** | UI rendering |
+
+---
+
+## 🤖 Artificial Intelligence & Machine Learning
+
+| Technology | Purpose |
+|------------|---------|
+| **OpenAI Whisper** | Speech-to-Text Transcription |
+| **Hugging Face Transformers** | AI Text Summarization |
+| **facebook/bart-large-cnn** | Transformer-based Summarization Model |
+| **PyTorch** | Deep Learning Framework |
+| **SentencePiece** | NLP Tokenization |
+| **Tokenizers** | Efficient Transformer Tokenization |
+
+---
+
+## 🎬 Media Processing
+
+| Technology | Purpose |
+|------------|---------|
+| **FFmpeg** | Audio Extraction from Videos |
+| **Movie Processing Pipeline** | Video Handling |
+| **Temporary File Management** | Intermediate Processing |
+
+---
+
+## ⚙️ Python Libraries
+
+| Library | Purpose |
+|---------|---------|
+| **Streamlit** | User Interface |
+| **Torch** | Deep Learning |
+| **Transformers** | NLP Models |
+| **Whisper** | Speech Recognition |
+| **FFmpeg-Python** | Audio Extraction |
+| **OS** | File Management |
+| **Tempfile** | Temporary Storage |
+
+---
+
+# 📂 Project Structure
+
+```text
 AI-Agent-Transcribing-and-Summarizing-Videos/
+
 │
-├── app.py                     # Streamlit UI
-├── main.py                    # Main pipeline controller
-├── transcriber.py             # Whisper + audio extraction
-├── summarizer.py              # BART summarization logic
-├── utils.py                   # Chunking and text helpers
-├── requirements.txt           # Project dependencies
-├── Screenshot 2025-11-14.png  # Screenshot used in README
-└── notes.txt
 
-⚙️ Technology Stack
-🤖 Machine Learning Models
+├── app.py
 
-Whisper (Speech-to-Text)
+├── requirements.txt
 
-BART Transformer (Summarization)
+├── ffmpeg.exe
 
-PyTorch backend
+├── README.md
 
-🧩 Tools & Frameworks
+│
 
-Streamlit
+├── models/
 
-FFmpeg / ffmpeg-python
+│
 
-Hugging Face Transformers
+├── utils/
 
-🖥️ Programming
+│
 
-Python 3.10+
+├── assets/
 
-🛠️ Installation
-1️⃣ Clone the repository
-git clone https://github.com/your-username/AI-Agent-Transcribing-and-Summarizing-Videos.git
+│
+
+└── temp/
+```
+
+---
+
+# 🚀 Major Project Modules
+
+## 🎥 Video Processing Module
+
+Responsible for handling uploaded videos before AI processing.
+
+### Responsibilities
+
+- Accept video uploads
+- Validate file formats
+- Prepare media pipeline
+- Temporary storage
+
+---
+
+## 🎧 Audio Extraction Module
+
+Uses FFmpeg to separate audio from video.
+
+### Features
+
+- Automatic Extraction
+- Fast Processing
+- High Audio Quality
+- Multiple Format Support
+
+---
+
+## 🗣️ Speech Recognition Module
+
+Powered by **OpenAI Whisper**.
+
+### Capabilities
+
+- Speech Recognition
+- Automatic Transcription
+- Noise Handling
+- Long Audio Support
+- Accurate Text Generation
+
+---
+
+## 🧠 AI Summarization Module
+
+Uses **facebook/bart-large-cnn**.
+
+### Features
+
+- AI Summary Generation
+- Transformer Models
+- Context Preservation
+- Human-readable Output
+
+---
+
+## 📄 Output Module
+
+Displays generated transcript and summary.
+
+### Includes
+
+- Transcript Viewer
+- AI Summary
+- Scrollable Output
+- Easy Reading Experience
+
+---
+
+# 📸 Application Screenshots
+
+> Replace these placeholders with actual screenshots after deployment.
+
+## 🏠 Home Screen
+
+```text
+screenshots/home.png
+```
+
+---
+
+## 🎥 Upload Video
+
+```text
+screenshots/upload.png
+```
+
+---
+
+## 🗣️ Transcript Generation
+
+```text
+screenshots/transcript.png
+```
+
+---
+
+## 🧠 AI Summary
+
+```text
+screenshots/summary.png
+```
+
+---
+
+## ⚙️ Processing
+
+```text
+screenshots/processing.png
+```
+
+---
+
+# ⚙️ Installation Guide
+
+## 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/DiVyansh-Gt/AI-Agent-Transcribing-and-Summarizing-Videos.git
+```
+
+```bash
 cd AI-Agent-Transcribing-and-Summarizing-Videos
+```
 
-2️⃣ Install dependencies
+---
+
+## 2️⃣ Create Virtual Environment
+
+### Windows
+
+```bash
+python -m venv venv
+```
+
+Activate:
+
+```bash
+venv\Scripts\activate
+```
+
+---
+
+### Linux / macOS
+
+```bash
+python3 -m venv venv
+
+source venv/bin/activate
+```
+
+---
+
+## 3️⃣ Install Dependencies
+
+```bash
 pip install -r requirements.txt
+```
 
-3️⃣ Install FFmpeg
+---
 
-Windows: download from ffmpeg.org
+# 🔐 Environment Variables
 
-macOS: brew install ffmpeg
+Create a **.env** file in the project root.
 
-Linux: sudo apt install ffmpeg
+```env
+OPENAI_API_KEY=your_openai_api_key
 
-▶️ Run the Application
+HF_TOKEN=your_huggingface_token
+```
+
+> **Note:** If your implementation uses only local Whisper and BART models without API keys, you can omit these variables. Keep this section only if your code actually reads them.
+
+---
+
+# ▶️ Run Application
+
+```bash
 streamlit run app.py
+```
 
+The application will be available at:
 
-Your browser will open with the interface where you can upload videos for transcription and summarization.
+```text
+http://localhost:8501
+```
 
-📝 Example Summary Output
+---
 
-“A Data Scientist is a professional who uses data to solve business problems.
-They work with large datasets, apply statistical models, machine learning,
-and computational methods to derive insights and make data-driven decisions.”
+# 🌍 Deployment
 
-🛣️ Roadmap
+## Local Development
 
- Multi-language transcription
+```text
+http://localhost:8501
+```
 
- Multi-model summarization support
+## Production
 
- Export transcript + summary to PDF
+Deploy easily on:
 
- Time-stamped transcripts
+- Streamlit Community Cloud
+- Hugging Face Spaces
+- Render
+- Railway
 
- Cloud deployment
+- Railway
 
- UI enhancements and animations
+---
 
-🤝 Contributing
+# 🔄 AI Processing Pipeline
 
-Pull requests are welcome!
-If you have suggestions or want to add new features, feel free to open an issue.
+The application follows a sequential AI pipeline that transforms raw video input into meaningful text summaries.
 
-📝 License
+## Complete Workflow
 
-This project is open-source and available under the MIT License.
+```
+User Uploads Video
+        │
+        ▼
+Validate Video File
+        │
+        ▼
+Extract Audio (FFmpeg)
+        │
+        ▼
+Speech Recognition (OpenAI Whisper)
+        │
+        ▼
+Generate Transcript
+        │
+        ▼
+Split Long Transcript
+        │
+        ▼
+Transformer Summarization (BART)
+        │
+        ▼
+Generate Final Summary
+        │
+        ▼
+Display Transcript & Summary
+```
+
+---
+
+# 🎥 Video Processing Workflow
+
+```
+Video File
+
+     │
+
+     ▼
+
+Upload Validation
+
+     │
+
+     ▼
+
+Temporary Storage
+
+     │
+
+     ▼
+
+FFmpeg Audio Extraction
+
+     │
+
+     ▼
+
+WAV Audio Output
+```
+
+---
+
+# 🗣️ Speech Recognition Workflow
+
+```
+Extracted Audio
+
+        │
+
+        ▼
+
+OpenAI Whisper
+
+        │
+
+        ▼
+
+Speech Detection
+
+        │
+
+        ▼
+
+Language Understanding
+
+        │
+
+        ▼
+
+Accurate Transcript
+```
+
+---
+
+# 🧠 AI Summarization Workflow
+
+```
+Transcript
+
+      │
+
+      ▼
+
+Chunk Processing
+
+      │
+
+      ▼
+
+Hugging Face BART
+
+      │
+
+      ▼
+
+Transformer Encoding
+
+      │
+
+      ▼
+
+Summary Generation
+
+      │
+
+      ▼
+
+Final Summary
+```
+
+---
+
+# 📄 Output Generation Workflow
+
+```
+Transcript
+
+      │
+
+      ├──────────────┐
+
+      ▼              ▼
+
+Display Text     Generate Summary
+
+      │              │
+
+      └──────┬───────┘
+
+             ▼
+
+     Streamlit Interface
+```
+
+---
+
+# ⚡ Performance Highlights
+
+- 🚀 Fast Speech Recognition with OpenAI Whisper
+- 🧠 Transformer-based Summarization using BART
+- 🎧 Automatic Audio Extraction
+- 🎥 End-to-End Video Processing
+- 📄 High-quality Transcript Generation
+- 📚 Context-aware AI Summaries
+- ⚡ Lightweight Streamlit Interface
+- 🔥 PyTorch Deep Learning Backend
+- 🛠️ Modular AI Pipeline
+- 📱 Beginner-friendly User Experience
+
+---
+
+# 🔒 Project Highlights
+
+### Artificial Intelligence
+
+- OpenAI Whisper Speech Recognition
+- Hugging Face Transformers
+- BART Large CNN
+- Natural Language Processing
+- Deep Learning Models
+
+---
+
+### Video Processing
+
+- Automatic Audio Extraction
+- FFmpeg Integration
+- Temporary File Handling
+- Long Video Support
+
+---
+
+### User Experience
+
+- Interactive Streamlit Dashboard
+- Simple Upload Interface
+- Fast Processing
+- Real-time Results
+
+---
+
+# 🚀 Future Enhancements
+
+The project can be extended with the following features:
+
+- 🌍 Multi-language Translation
+- 🎙️ Speaker Identification
+- 😊 Emotion Detection
+- 📑 PDF Summary Export
+- ☁️ Cloud Storage Integration
+- 📧 Email Summary Delivery
+- 🎥 YouTube URL Processing
+- 🔊 Text-to-Speech Summary
+- 📱 Mobile Responsive Interface
+- 🤖 LLM-based Conversational Chat with Transcript
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome!
+
+To contribute:
+
+1. Fork the repository
+
+2. Create a feature branch
+
+```bash
+git checkout -b feature/NewFeature
+```
+
+3. Commit your changes
+
+```bash
+git commit -m "Add New Feature"
+```
+
+4. Push your branch
+
+```bash
+git push origin feature/NewFeature
+```
+
+5. Open a Pull Request
+
+---
+
+# 📄 License
+
+This project is licensed under the **MIT License**.
+
+You are free to use, modify, and distribute this project for educational, research, and personal learning purposes.
+
+---
+
+# 👨‍💻 Author
+
+<div align="center">
+
+# **Divyansh Gupta**
+
+### AI • Machine Learning • Python Developer
+
+Building Intelligent Applications using Artificial Intelligence, NLP & Deep Learning.
+
+[![GitHub](https://img.shields.io/badge/GitHub-DiVyansh--Gt-black?style=for-the-badge&logo=github)](https://github.com/DiVyansh-Gt)
+
+<br>
+
+⭐ If you found this project helpful, don't forget to **Star** the repository.
+
+Made with ❤️ using Python, Streamlit, OpenAI Whisper, Hugging Face Transformers & PyTorch.
+
+</div>
+
+---
+
+# 💙 Support
+
+If this project helped you,
+
+⭐ Star this repository
+
+🍴 Fork the repository
+
+📢 Share it with others
+
+Happy Coding 🚀
